@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 08:21:06 GMT
+Content-Type: application/json
+Content-Length: 358
+Connection: close
+
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDMxODA2NiwianRpIjoiN2QxNDMwMzUtNDA4Ny00ZTllLTkxNGYtYjQ2ZDVjMzdkYmZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Ik1ha3MxMjMiLCJuYmYiOjE3MTAzMTgwNjYsImNzcmYiOiI2OTNlMmU2ZC00ZGVmLTQ5MjgtYjhkMi1jN2M0Y2FkY2Q0YWMiLCJleHAiOjE3MTAzMTg5NjZ9.LfxDVec-VIXk5QAWjDqj0dE3loS74x92WuKTUAHVe98"
+}
+HTTP/1.1 400 BAD REQUEST
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 08:21:09 GMT
+Content-Type: application/json
+Content-Length: 39
+Connection: close
+
+{
+    "message": "User already exists"
+}
