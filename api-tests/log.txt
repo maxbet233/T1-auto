@@ -1,20 +1,203 @@
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:11:22 GMT
+Date: Wed, 13 Mar 2024 15:57:00 GMT
 Content-Type: application/json
 Content-Length: 369
 Connection: close
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0MjY4MiwianRpIjoiMmQ2MTMyODgtMzkxMy00OGRlLWJhNjAtMTAzNjUzOWY5MGJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0MjY4MiwiY3NyZiI6IjQzNTQ1MDQyLTYzMWUtNGYwMy05YjEwLWI2YTBhOWViY2UwNCIsImV4cCI6MTcxMDM0MzU4Mn0.I_t9jAXOz8Vg6oe_0LUXySzC5n3S-3Ge-Vf7Z36LeEQ"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0NTQyMCwianRpIjoiMTI0Nzk3NTYtOTBjOS00NDU4LTkzZjItMDhlNzRkMzZlNDAyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0NTQyMCwiY3NyZiI6IjdmY2IyMWVhLWQ0MjktNDNhNi1hOWQyLWE1YzZlZjZkMWJlZiIsImV4cCI6MTcxMDM0NjMyMH0.HF4Je9Cb_x0sgFyYVipKqIkB7j5TQQiLG5uBFYH1_iU"
 }
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:11:24 GMT
+Date: Wed, 13 Mar 2024 15:57:01 GMT
+Content-Type: application/json
+Content-Length: 131
+Connection: close
+
+[
+    {
+        "category": "Electronics",
+        "discount": 10.0,
+        "id": 1,
+        "name": "HP Pavilion Laptop",
+        "price": 10.99
+    }
+]
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:02 GMT
+Content-Type: application/json
+Content-Length: 235
+Connection: close
+
+{
+    "cart": [
+        {
+            "category": "Electronics",
+            "discount": 10.0,
+            "id": 1,
+            "name": "HP Pavilion Laptop",
+            "price": 10.99,
+            "quantity": 44
+        }
+    ],
+    "total_discount": 48.36,
+    "total_price": 483.56
+}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:02 GMT
 Content-Type: application/json
 Content-Length: 369
 Connection: close
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0MjY4NCwianRpIjoiYTE3ZWFkZjEtNWU0Yy00YjNlLWE0YjktZjc4MTlkOTFhN2I5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0MjY4NCwiY3NyZiI6ImVjN2NkM2M4LWM2YTEtNDkxMi04MjY5LTEzN2YwODE2MTgxYSIsImV4cCI6MTcxMDM0MzU4NH0.pI4tiamWPaCwZe23FZXMsEODVqyktKQK9-ReRtEzVSU"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0NTQyMiwianRpIjoiMGU4NjZkNjAtODk4NC00ODBhLWI3MGQtYTY4NzA3YjgzZDdjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0NTQyMiwiY3NyZiI6IjJlYjA2ZDFlLTdmM2EtNDE4MC1hMTJlLWFkMWI0YjMwZTRmYiIsImV4cCI6MTcxMDM0NjMyMn0.P10jnUc1pe6kJBst0WTijAFFPObVDrd-cqz9SWKiTHg"
+}
+HTTP/1.1 405 METHOD NOT ALLOWED
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:02 GMT
+Content-Type: text/html; charset=utf-8
+Allow: OPTIONS, GET, HEAD
+Content-Length: 153
+Connection: close
+
+<html lang="en">
+  <head>
+    <title>405 Method Not Allowed</title>
+  </head>
+  <body>
+    <h1>Method Not Allowed</h1>
+    <p>The method is not allowed for the requested URL.</p>
+  </body>
+</html>
+HTTP/1.1 405 METHOD NOT ALLOWED
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:03 GMT
+Content-Type: text/html; charset=utf-8
+Allow: OPTIONS, GET, HEAD
+Content-Length: 153
+Connection: close
+
+<html lang="en">
+  <head>
+    <title>405 Method Not Allowed</title>
+  </head>
+  <body>
+    <h1>Method Not Allowed</h1>
+    <p>The method is not allowed for the requested URL.</p>
+  </body>
+</html>
+HTTP/1.1 201 CREATED
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:03 GMT
+Content-Type: application/json
+Content-Length: 48
+Connection: close
+
+{
+    "message": "User registered successfully"
+}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:03 GMT
+Content-Type: application/json
+Content-Length: 1003
+Connection: close
+
+[
+    {
+        "category": "Electronics",
+        "discount": 10.0,
+        "id": 1,
+        "name": "HP Pavilion Laptop",
+        "price": 10.99
+    },
+    {
+        "category": "Electronics",
+        "discount": null,
+        "id": 2,
+        "name": "Samsung Galaxy Smartphone",
+        "price": 15.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 2.5,
+        "id": 3,
+        "name": "Adidas T-shirt",
+        "price": 8.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 15.0,
+        "id": 4,
+        "name": "Levis Jeans",
+        "price": 12.99
+    },
+    {
+        "category": "Electronics",
+        "discount": 10.0,
+        "id": 5,
+        "name": "HP Pavilion Laptop",
+        "price": 10.99
+    },
+    {
+        "category": "Electronics",
+        "discount": null,
+        "id": 6,
+        "name": "Samsung Galaxy Smartphone",
+        "price": 15.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 2.5,
+        "id": 7,
+        "name": "Adidas T-shirt",
+        "price": 8.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 15.0,
+        "id": 8,
+        "name": "Levis Jeans",
+        "price": 12.99
+    }
+]
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:03 GMT
+Content-Type: application/json
+Content-Length: 45
+Connection: close
+
+{
+    "message": "Product removed from cart"
+}
+HTTP/1.1 405 METHOD NOT ALLOWED
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:03 GMT
+Content-Type: text/html; charset=utf-8
+Allow: OPTIONS, GET, HEAD
+Content-Length: 153
+Connection: close
+
+<html lang="en">
+  <head>
+    <title>405 Method Not Allowed</title>
+  </head>
+  <body>
+    <h1>Method Not Allowed</h1>
+    <p>The method is not allowed for the requested URL.</p>
+  </body>
+</html>
+HTTP/1.1 201 CREATED
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Wed, 13 Mar 2024 15:57:04 GMT
+Content-Type: application/json
+Content-Length: 54
+Connection: close
+
+{
+    "message": "Product added to cart successfully"
 }
