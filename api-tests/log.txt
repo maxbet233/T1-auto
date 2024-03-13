@@ -1,16 +1,16 @@
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:00 GMT
+Date: Wed, 13 Mar 2024 18:27:02 GMT
 Content-Type: application/json
 Content-Length: 369
 Connection: close
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0NTQyMCwianRpIjoiMTI0Nzk3NTYtOTBjOS00NDU4LTkzZjItMDhlNzRkMzZlNDAyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0NTQyMCwiY3NyZiI6IjdmY2IyMWVhLWQ0MjktNDNhNi1hOWQyLWE1YzZlZjZkMWJlZiIsImV4cCI6MTcxMDM0NjMyMH0.HF4Je9Cb_x0sgFyYVipKqIkB7j5TQQiLG5uBFYH1_iU"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM1NDQyMiwianRpIjoiODY4ZWYzZjItNTYxMC00MGZjLTliNWItMTU4NDQ1MzRkNTY3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM1NDQyMiwiY3NyZiI6IjBlMDNjYmQxLTEwMWUtNDAwMS1hMTU4LTNlMTgwZDBjOTZmYyIsImV4cCI6MTcxMDM1NTMyMn0.oVLGRAA-VVjWYAswolRWKQbHh9wn3KFHKLi2MADHGXw"
 }
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:01 GMT
+Date: Wed, 13 Mar 2024 18:27:03 GMT
 Content-Type: application/json
 Content-Length: 131
 Connection: close
@@ -26,7 +26,7 @@ Connection: close
 ]
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:02 GMT
+Date: Wed, 13 Mar 2024 18:27:03 GMT
 Content-Type: application/json
 Content-Length: 235
 Connection: close
@@ -39,25 +39,25 @@ Connection: close
             "id": 1,
             "name": "HP Pavilion Laptop",
             "price": 10.99,
-            "quantity": 44
+            "quantity": 79
         }
     ],
-    "total_discount": 48.36,
-    "total_price": 483.56
+    "total_discount": 86.82,
+    "total_price": 868.21
 }
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:02 GMT
+Date: Wed, 13 Mar 2024 18:27:03 GMT
 Content-Type: application/json
 Content-Length: 369
 Connection: close
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0NTQyMiwianRpIjoiMGU4NjZkNjAtODk4NC00ODBhLWI3MGQtYTY4NzA3YjgzZDdjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0NTQyMiwiY3NyZiI6IjJlYjA2ZDFlLTdmM2EtNDE4MC1hMTJlLWFkMWI0YjMwZTRmYiIsImV4cCI6MTcxMDM0NjMyMn0.P10jnUc1pe6kJBst0WTijAFFPObVDrd-cqz9SWKiTHg"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM1NDQyMywianRpIjoiMjFlMmVmZTItNjRlNy00NWM3LTk1ZmMtZjkyYWU5NzA1MzkzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM1NDQyMywiY3NyZiI6ImRjNzBiMDMzLTg2OGItNDQzMy1hNTQ3LTRkMTU1ZTI3NGYwZSIsImV4cCI6MTcxMDM1NTMyM30.U6R7R3HbqpWyV6Rm8DPnf5XRP_qAY8Mpk_dgQ13A_lQ"
 }
 HTTP/1.1 405 METHOD NOT ALLOWED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:02 GMT
+Date: Wed, 13 Mar 2024 18:27:03 GMT
 Content-Type: text/html; charset=utf-8
 Allow: OPTIONS, GET, HEAD
 Content-Length: 153
@@ -74,7 +74,7 @@ Connection: close
 </html>
 HTTP/1.1 405 METHOD NOT ALLOWED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:03 GMT
+Date: Wed, 13 Mar 2024 18:27:04 GMT
 Content-Type: text/html; charset=utf-8
 Allow: OPTIONS, GET, HEAD
 Content-Length: 153
@@ -91,7 +91,7 @@ Connection: close
 </html>
 HTTP/1.1 201 CREATED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:03 GMT
+Date: Wed, 13 Mar 2024 18:27:04 GMT
 Content-Type: application/json
 Content-Length: 48
 Connection: close
@@ -101,7 +101,7 @@ Connection: close
 }
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:03 GMT
+Date: Wed, 13 Mar 2024 18:27:04 GMT
 Content-Type: application/json
 Content-Length: 1003
 Connection: close
@@ -166,7 +166,7 @@ Connection: close
 ]
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:03 GMT
+Date: Wed, 13 Mar 2024 18:27:04 GMT
 Content-Type: application/json
 Content-Length: 45
 Connection: close
@@ -176,7 +176,7 @@ Connection: close
 }
 HTTP/1.1 405 METHOD NOT ALLOWED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:03 GMT
+Date: Wed, 13 Mar 2024 18:27:05 GMT
 Content-Type: text/html; charset=utf-8
 Allow: OPTIONS, GET, HEAD
 Content-Length: 153
@@ -193,7 +193,7 @@ Connection: close
 </html>
 HTTP/1.1 201 CREATED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 15:57:04 GMT
+Date: Wed, 13 Mar 2024 18:27:05 GMT
 Content-Type: application/json
 Content-Length: 54
 Connection: close
