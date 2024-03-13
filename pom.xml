@@ -65,6 +65,7 @@
         <junit.jupiter.version>5.10.2</junit.jupiter.version>
         <allure.version>2.25.0</allure.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <javafaker.version>1.0.1</javafaker.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -115,6 +116,11 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
         </dependency>
     </dependencies>
 </project>

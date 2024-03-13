@@ -37,8 +37,8 @@ public class RestAssuredTest {
 
         new_credentionals = new StringBuilder()
                 .append("{")
-                .append("\"username\": \"Maks123\",")
-                .append("\"password\": \"stri5ytng\"")
+                .append("\"username\": \"Maks1233453465\",")
+                .append("\"password\": \"stri5ytng344\"")
                 .append("}").toString();
         new_token = RestAssured.given()
                 .contentType(ContentType.JSON)
