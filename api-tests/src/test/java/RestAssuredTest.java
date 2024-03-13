@@ -8,7 +8,6 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 
@@ -26,7 +25,8 @@ public class RestAssuredTest {
             .append("\"product_id\": \"1\",")
             .append("\"quantity\": \"8\"")
             .append("}").toString();
-    private Integer productId = 1;
+
+    private static Integer productId = 1;
     private static String new_token;
     private static String new_credentionals;
     private static String login;
@@ -52,6 +52,8 @@ public class RestAssuredTest {
                 .then().assertThat().statusCode(200)
                 .and().extract().body().jsonPath().getString("access_token");
     }
+
+
 
     @Test
     public void newRegister(){
