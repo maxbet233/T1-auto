@@ -1,20 +1,20 @@
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 08:21:06 GMT
+Date: Wed, 13 Mar 2024 15:11:22 GMT
 Content-Type: application/json
-Content-Length: 358
+Content-Length: 369
 Connection: close
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDMxODA2NiwianRpIjoiN2QxNDMwMzUtNDA4Ny00ZTllLTkxNGYtYjQ2ZDVjMzdkYmZmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6Ik1ha3MxMjMiLCJuYmYiOjE3MTAzMTgwNjYsImNzcmYiOiI2OTNlMmU2ZC00ZGVmLTQ5MjgtYjhkMi1jN2M0Y2FkY2Q0YWMiLCJleHAiOjE3MTAzMTg5NjZ9.LfxDVec-VIXk5QAWjDqj0dE3loS74x92WuKTUAHVe98"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0MjY4MiwianRpIjoiMmQ2MTMyODgtMzkxMy00OGRlLWJhNjAtMTAzNjUzOWY5MGJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0MjY4MiwiY3NyZiI6IjQzNTQ1MDQyLTYzMWUtNGYwMy05YjEwLWI2YTBhOWViY2UwNCIsImV4cCI6MTcxMDM0MzU4Mn0.I_t9jAXOz8Vg6oe_0LUXySzC5n3S-3Ge-Vf7Z36LeEQ"
 }
-HTTP/1.1 400 BAD REQUEST
+HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Wed, 13 Mar 2024 08:21:09 GMT
+Date: Wed, 13 Mar 2024 15:11:24 GMT
 Content-Type: application/json
-Content-Length: 39
+Content-Length: 369
 Connection: close
 
 {
-    "message": "User already exists"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDM0MjY4NCwianRpIjoiYTE3ZWFkZjEtNWU0Yy00YjNlLWE0YjktZjc4MTlkOTFhN2I5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IkRvY3RvckplcnJpZTMxMCIsIm5iZiI6MTcxMDM0MjY4NCwiY3NyZiI6ImVjN2NkM2M4LWM2YTEtNDkxMi04MjY5LTEzN2YwODE2MTgxYSIsImV4cCI6MTcxMDM0MzU4NH0.pI4tiamWPaCwZe23FZXMsEODVqyktKQK9-ReRtEzVSU"
 }

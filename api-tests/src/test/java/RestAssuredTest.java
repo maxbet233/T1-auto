@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
@@ -28,18 +29,22 @@ public class RestAssuredTest {
     private Integer productId = 1;
     private static String new_token;
     private static String new_credentionals;
+    private static String login;
+
 
     @BeforeAll
     public static void beforeAll() throws FileNotFoundException {
         RestAssured.baseURI = "http://9b142cdd34e.vps.myjino.ru:49268";
+
         PrintStream print = new PrintStream("log.txt");
         RestAssured.filters(RequestLoggingFilter.logRequestTo(System.out), ResponseLoggingFilter.logResponseTo(print));
 
         new_credentionals = new StringBuilder()
                 .append("{")
-                .append("\"username\": \"Maks1233453465\",")
-                .append("\"password\": \"stri5ytng344\"")
+                .append("\"username\": \"DoctorJerrie310\",")
+                .append("\"password\": \"pass123\"")
                 .append("}").toString();
+
         new_token = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(new_credentionals)
@@ -50,12 +55,19 @@ public class RestAssuredTest {
 
     @Test
     public void newRegister(){
+        Faker faker = new Faker();
+        login = faker.superhero().prefix()+faker.name().firstName()+faker.address().buildingNumber();
+        new_credentionals = new StringBuilder()
+                .append("{")
+                .append("\"username\": \"" + login + "\",")
+                .append("\"password\": \"pass123\"")
+                .append("}").toString();
         Response response = RestAssured.given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .body(new_credentionals)
                 .post("/register");
-        response.then().statusCode(400);
+        response.then().statusCode(201);
     }
 
     @Test
