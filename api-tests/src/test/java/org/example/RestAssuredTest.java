@@ -50,6 +50,7 @@ public class RestAssuredTest {
                 .body(new User(Specs.login, Specs.password))
                 .post()
                 .then()
+                .assertThat()
                 .statusCode(200);
     }
 
@@ -73,7 +74,9 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, Specs.discount))
                 .post()
-                .then().statusCode(200);
+                .then()
+                .assertThat()
+                .statusCode(200);
     }
     @Test
     public void getProductIdTest() {
@@ -105,7 +108,9 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
                 .post("1")
-                .then().statusCode(200);
+                .then()
+                .assertThat()
+                .statusCode(200);
     }
     @Test
     public void putFakeProductTest() {
@@ -115,7 +120,9 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
                 .put("1drfge45")
-                .then().statusCode(404);
+                .then()
+                .assertThat()
+                .statusCode(404);
     }
 
     @Test
@@ -134,7 +141,9 @@ public class RestAssuredTest {
                 .given()
                 .accept(ContentType.JSON)
                 .post("1thrth")
-                .then().statusCode(404);
+                .then()
+                .assertThat()
+                .statusCode(404);
     }
 
     @Test
@@ -170,7 +179,9 @@ public class RestAssuredTest {
                 .header(new Header("Authorization", "Bearer " + token))
                 .body(new AddProductInCart(Specs.id, Specs.quantity))
                 .post()
-                .then().statusCode(201);
+                .then()
+                .assertThat()
+                .statusCode(201);
     }
     @Test
     public void newCartNoAuthTest(){
@@ -180,7 +191,9 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .body(new AddProductInCart(1, 15))
                 .post()
-                .then().statusCode(401);
+                .then()
+                .assertThat()
+                .statusCode(401);
     }
     @Test
     public void delProductOfCartTest(){
@@ -191,7 +204,9 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer " + token))
                 .delete("1")
-                .then().statusCode(200);
+                .then()
+                .assertThat()
+                .statusCode(200);
     }
     @Test
     public void delFakeProductOfCartTest(){
@@ -202,7 +217,9 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer " + token))
                 .delete("1fgd")
-                .then().statusCode(404);
+                .then()
+                .assertThat()
+                .statusCode(404);
     }
     @Test
     public void delProductOfCartNoAuthTest(){
@@ -211,7 +228,9 @@ public class RestAssuredTest {
                 .given()
                 .accept(ContentType.JSON)
                 .delete("1")
-                .then().statusCode(401);
+                .then()
+                .assertThat()
+                .statusCode(401);
     }
 
 

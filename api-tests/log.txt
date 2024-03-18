@@ -1,10 +1,31 @@
-HTTP/1.1 401 UNAUTHORIZED
+HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Mon, 18 Mar 2024 21:01:01 GMT
+Date: Mon, 18 Mar 2024 21:06:08 GMT
 Content-Type: application/json
-Content-Length: 44
+Content-Length: 361
 Connection: close
 
 {
-    "msg": "Missing Authorization Header"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMDc5NTk2OCwianRpIjoiMTFhNjQ2MTYtZWMzYi00Y2RhLWI5MWItMDIwM2JhNGMzNTU5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3RlcjEyMyIsIm5iZiI6MTcxMDc5NTk2OCwiY3NyZiI6ImQ4OGQ1OGJkLWY2MWEtNGQ4MC05OTZkLWJkMDdkZTdhMmI5ZSIsImV4cCI6MTcxMDc5Njg2OH0.S--gQKrIW4vj9yxfWWRKCISVzzU76tdtHA34S0tVP78"
+}
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Mon, 18 Mar 2024 21:06:09 GMT
+Content-Type: application/json
+Content-Length: 235
+Connection: close
+
+{
+    "cart": [
+        {
+            "category": "Electronics",
+            "discount": 10.0,
+            "id": 1,
+            "name": "HP Pavilion Laptop",
+            "price": 10.99,
+            "quantity": 74
+        }
+    ],
+    "total_discount": 81.33,
+    "total_price": 813.26
 }
