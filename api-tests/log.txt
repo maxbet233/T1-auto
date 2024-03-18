@@ -1,8 +1,8 @@
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Mon, 18 Mar 2024 19:55:04 GMT
+Date: Mon, 18 Mar 2024 20:07:45 GMT
 Content-Type: application/json
-Content-Length: 1003
+Content-Length: 131
 Connection: close
 
 [
@@ -12,54 +12,21 @@ Connection: close
         "id": 1,
         "name": "HP Pavilion Laptop",
         "price": 10.99
-    },
-    {
-        "category": "Electronics",
-        "discount": null,
-        "id": 2,
-        "name": "Samsung Galaxy Smartphone",
-        "price": 15.99
-    },
-    {
-        "category": "Clothing",
-        "discount": 2.5,
-        "id": 3,
-        "name": "Adidas T-shirt",
-        "price": 8.99
-    },
-    {
-        "category": "Clothing",
-        "discount": 15.0,
-        "id": 4,
-        "name": "Levis Jeans",
-        "price": 12.99
-    },
-    {
-        "category": "Electronics",
-        "discount": 10.0,
-        "id": 5,
-        "name": "HP Pavilion Laptop",
-        "price": 10.99
-    },
-    {
-        "category": "Electronics",
-        "discount": null,
-        "id": 6,
-        "name": "Samsung Galaxy Smartphone",
-        "price": 15.99
-    },
-    {
-        "category": "Clothing",
-        "discount": 2.5,
-        "id": 7,
-        "name": "Adidas T-shirt",
-        "price": 8.99
-    },
-    {
-        "category": "Clothing",
-        "discount": 15.0,
-        "id": 8,
-        "name": "Levis Jeans",
-        "price": 12.99
     }
 ]
+HTTP/1.1 404 NOT FOUND
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Mon, 18 Mar 2024 20:07:46 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 207
+Connection: close
+
+<html lang="en">
+  <head>
+    <title>404 Not Found</title>
+  </head>
+  <body>
+    <h1>Not Found</h1>
+    <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+  </body>
+</html>

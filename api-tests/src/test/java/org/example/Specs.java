@@ -14,6 +14,8 @@ public class Specs {
     public static String category = "Electronics";
     public static Float price = 15.5F;
     public static Float discount = 5.3F;
+    public static Integer id = 1;
+    public static Integer quantity = 15;
     public static String Path = "src/test/resources";
     public static RequestSpecification requestSpec(String baseUri, String basePath){
         return new RequestSpecBuilder()

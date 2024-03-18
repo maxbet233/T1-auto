@@ -79,6 +79,24 @@ public class RestAssuredTest {
                 .post()
                 .then().statusCode(200);
     }
+    @Test
+    public void getProductIdTest() {
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        RestAssured
+                .given()
+                .get("1")
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("productCardSchema.json"));
+
+        RestAssured
+                .given()
+                .get("1rgtdf")
+                .then()
+                .assertThat()
+                .statusCode(404);
+    }
 
     @Test
     public void newCartTest(){
@@ -89,7 +107,7 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer " + token))
-                .body(new AddProductInCart(1, 15))
+                .body(new AddProductInCart(Specs.id, Specs.quantity))
                 .post()
                 .then().statusCode(201);
 
