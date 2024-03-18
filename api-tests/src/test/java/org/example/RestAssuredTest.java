@@ -27,12 +27,6 @@ public class RestAssuredTest {
     private static final String cart_endpoint = "/cart";
     private static final String Path = "src/test/resources";
 
-    private String cart = new StringBuilder()
-            .append("{")
-            .append("\"product_id\": \"1\",")
-            .append("\"quantity\": \"8\"")
-            .append("}").toString();
-
 
     @BeforeAll
     public static void beforeAll() throws FileNotFoundException {
