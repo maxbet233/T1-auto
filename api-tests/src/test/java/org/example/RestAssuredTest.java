@@ -99,6 +99,25 @@ public class RestAssuredTest {
     }
 
     @Test
+    public void putProductTest() {
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
+                .post("1")
+                .then().statusCode(200);
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
+                .post("1drfge45")
+                .then().statusCode(404);
+    }
+
+    @Test
     public void newCartTest(){
         String token = autorizate(Specs.login, Specs.password);
         Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));

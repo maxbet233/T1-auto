@@ -1,32 +1,17 @@
-HTTP/1.1 200 OK
+HTTP/1.1 405 METHOD NOT ALLOWED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Mon, 18 Mar 2024 20:07:45 GMT
-Content-Type: application/json
-Content-Length: 131
-Connection: close
-
-[
-    {
-        "category": "Electronics",
-        "discount": 10.0,
-        "id": 1,
-        "name": "HP Pavilion Laptop",
-        "price": 10.99
-    }
-]
-HTTP/1.1 404 NOT FOUND
-Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Mon, 18 Mar 2024 20:07:46 GMT
+Date: Mon, 18 Mar 2024 20:27:05 GMT
 Content-Type: text/html; charset=utf-8
-Content-Length: 207
+Allow: OPTIONS, GET, HEAD
+Content-Length: 153
 Connection: close
 
 <html lang="en">
   <head>
-    <title>404 Not Found</title>
+    <title>405 Method Not Allowed</title>
   </head>
   <body>
-    <h1>Not Found</h1>
-    <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+    <h1>Method Not Allowed</h1>
+    <p>The method is not allowed for the requested URL.</p>
   </body>
 </html>
