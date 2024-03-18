@@ -114,7 +114,7 @@ public class RestAssuredTest {
                 .given()
                 .accept(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
-                .post("1drfge45")
+                .put("1drfge45")
                 .then().statusCode(404);
     }
 
@@ -124,7 +124,7 @@ public class RestAssuredTest {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .post("1")
+                .put("1")
                 .then().statusCode(200);
     }
     @Test
@@ -139,13 +139,25 @@ public class RestAssuredTest {
 
     @Test
     public void getCartTest(){
+        String token = autorizate(Specs.login, Specs.password);
         Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
         RestAssured
                 .given()
-                .accept(ContentType.JSON)
-                .body(new AddProductInCart(Specs.id, Specs.quantity))
-                .post()
-                .then().statusCode(201);
+                .header(new Header("Authorization", "Bearer " + token))
+                .get()
+                .then()
+                .assertThat()
+                .statusCode(200);
+    }
+    @Test
+    public void getCartNoAuthTest(){
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        RestAssured
+                .given()
+                .get()
+                .then()
+                .assertThat()
+                .statusCode(401);
     }
 
     @Test
@@ -155,17 +167,50 @@ public class RestAssuredTest {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer " + token))
                 .body(new AddProductInCart(Specs.id, Specs.quantity))
                 .post()
                 .then().statusCode(201);
+    }
+    @Test
+    public void newCartNoAuthTest(){
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new AddProductInCart(1, 15))
                 .post()
+                .then().statusCode(401);
+    }
+    @Test
+    public void delProductOfCartTest(){
+        String token = autorizate(Specs.login, Specs.password);
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .header(new Header("Authorization", "Bearer " + token))
+                .delete("1")
+                .then().statusCode(200);
+    }
+    @Test
+    public void delFakeProductOfCartTest(){
+        String token = autorizate(Specs.login, Specs.password);
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .header(new Header("Authorization", "Bearer " + token))
+                .delete("1fgd")
+                .then().statusCode(404);
+    }
+    @Test
+    public void delProductOfCartNoAuthTest(){
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .delete("1")
                 .then().statusCode(401);
     }
 

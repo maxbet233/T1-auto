@@ -1,16 +1,10 @@
-HTTP/1.1 404 NOT FOUND
+HTTP/1.1 401 UNAUTHORIZED
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Mon, 18 Mar 2024 20:41:03 GMT
-Content-Type: text/html; charset=utf-8
-Content-Length: 207
+Date: Mon, 18 Mar 2024 21:01:01 GMT
+Content-Type: application/json
+Content-Length: 44
 Connection: close
 
-<html lang="en">
-  <head>
-    <title>404 Not Found</title>
-  </head>
-  <body>
-    <h1>Not Found</h1>
-    <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
-  </body>
-</html>
+{
+    "msg": "Missing Authorization Header"
+}
