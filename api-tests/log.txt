@@ -1,17 +1,16 @@
-HTTP/1.1 405 METHOD NOT ALLOWED
+HTTP/1.1 404 NOT FOUND
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Mon, 18 Mar 2024 20:27:05 GMT
+Date: Mon, 18 Mar 2024 20:41:03 GMT
 Content-Type: text/html; charset=utf-8
-Allow: OPTIONS, GET, HEAD
-Content-Length: 153
+Content-Length: 207
 Connection: close
 
 <html lang="en">
   <head>
-    <title>405 Method Not Allowed</title>
+    <title>404 Not Found</title>
   </head>
   <body>
-    <h1>Method Not Allowed</h1>
-    <p>The method is not allowed for the requested URL.</p>
+    <h1>Not Found</h1>
+    <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
   </body>
 </html>

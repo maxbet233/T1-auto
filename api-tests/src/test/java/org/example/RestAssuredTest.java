@@ -23,7 +23,6 @@ public class RestAssuredTest {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new User(Specs.login, Specs.password))
                 .post();
     }
@@ -33,7 +32,6 @@ public class RestAssuredTest {
         return RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new User(Specs.login, Specs.password))
                 .when()
                 .post()
@@ -49,7 +47,6 @@ public class RestAssuredTest {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new User(Specs.login, Specs.password))
                 .post()
                 .then()
@@ -74,7 +71,6 @@ public class RestAssuredTest {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, Specs.discount))
                 .post()
                 .then().statusCode(200);
@@ -89,7 +85,10 @@ public class RestAssuredTest {
                 .assertThat()
                 .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("productCardSchema.json"));
-
+    }
+    @Test
+    public void getFakeProductIdTest() {
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
         RestAssured
                 .given()
                 .get("1rgtdf")
@@ -104,17 +103,49 @@ public class RestAssuredTest {
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
                 .post("1")
                 .then().statusCode(200);
+    }
+    @Test
+    public void putFakeProductTest() {
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
-                .contentType(ContentType.JSON)
                 .body(new AddProduct(Specs.name_product, Specs.category, Specs.price, 88.34F))
                 .post("1drfge45")
                 .then().statusCode(404);
+    }
+
+    @Test
+    public void delProductTest() {
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .post("1")
+                .then().statusCode(200);
+    }
+    @Test
+    public void delFakeProductTest() {
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .post("1thrth")
+                .then().statusCode(404);
+    }
+
+    @Test
+    public void getCartTest(){
+        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .body(new AddProductInCart(Specs.id, Specs.quantity))
+                .post()
+                .then().statusCode(201);
     }
 
     @Test
@@ -129,7 +160,6 @@ public class RestAssuredTest {
                 .body(new AddProductInCart(Specs.id, Specs.quantity))
                 .post()
                 .then().statusCode(201);
-
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
