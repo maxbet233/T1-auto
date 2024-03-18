@@ -7,14 +7,19 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
+import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.matcher.RestAssuredMatchers;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
+import java.util.regex.Matcher;
+
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class RestAssuredTest {
 
@@ -76,18 +81,20 @@ public class RestAssuredTest {
 
     @Test
     public void getProductTest() {
-            var userlist = List.of (RestAssured.given()
-                .accept(ContentType.JSON)
-                .get(product_endpoint)
-                .then().assertThat().statusCode(200)
-                    .extract()
-                    .body()
-                    .as(ProductCard[].class));
+            RestAssured
+                    .given()
+                    .get(product_endpoint)
+                    .then()
+                    .assertThat()
+                    .statusCode(200)
+                    .body(matchesJsonSchemaInClasspath("productCardSchema.json"));
 
-            assert userlist.get(0).category().matches("\\D+");
+
+
+
 
         //ObjectMapper mapper = new ObjectMapper();
-        //mapper.writeValue(new File(Path + "/productCard.json"), response.body());
+        //mapper.writeValue(new File(Path + "/productCardSchema.json"), response.body());
     }
 
     @Test

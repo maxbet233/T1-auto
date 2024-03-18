@@ -1,0 +1,31 @@
+{
+  "title": "productCardSchema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "category",
+      "discount",
+      "id",
+      "name",
+      "price"
+    ],
+    "properties": {
+      "category": {
+        "type": "string"
+      },
+      "discount": {
+        "type": "number"
+      },
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "price": {
+        "type": "number"
+      }
+    }
+  }
+}
