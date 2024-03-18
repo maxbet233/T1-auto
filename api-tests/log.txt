@@ -1,0 +1,65 @@
+HTTP/1.1 200 OK
+Server: Werkzeug/3.0.1 Python/3.10.13
+Date: Mon, 18 Mar 2024 17:28:58 GMT
+Content-Type: application/json
+Content-Length: 1003
+Connection: close
+
+[
+    {
+        "category": "Electronics",
+        "discount": 10.0,
+        "id": 1,
+        "name": "HP Pavilion Laptop",
+        "price": 10.99
+    },
+    {
+        "category": "Electronics",
+        "discount": null,
+        "id": 2,
+        "name": "Samsung Galaxy Smartphone",
+        "price": 15.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 2.5,
+        "id": 3,
+        "name": "Adidas T-shirt",
+        "price": 8.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 15.0,
+        "id": 4,
+        "name": "Levis Jeans",
+        "price": 12.99
+    },
+    {
+        "category": "Electronics",
+        "discount": 10.0,
+        "id": 5,
+        "name": "HP Pavilion Laptop",
+        "price": 10.99
+    },
+    {
+        "category": "Electronics",
+        "discount": null,
+        "id": 6,
+        "name": "Samsung Galaxy Smartphone",
+        "price": 15.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 2.5,
+        "id": 7,
+        "name": "Adidas T-shirt",
+        "price": 8.99
+    },
+    {
+        "category": "Clothing",
+        "discount": 15.0,
+        "id": 8,
+        "name": "Levis Jeans",
+        "price": 12.99
+    }
+]
