@@ -99,13 +99,22 @@ public class RestAssuredTest {
     @Test
     public void newCartTest(){
         String token = autorizate(login, password);
-        RestAssured.given()
+        RestAssured
+                .given()
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer " + token))
                 .body(new AddProductInCart(1, 15))
                 .post(cart_endpoint)
                 .then().statusCode(201);
+
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(new AddProductInCart(1, 15))
+                .post(cart_endpoint)
+                .then().statusCode(401);
     }
 
 
