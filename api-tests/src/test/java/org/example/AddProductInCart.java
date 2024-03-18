@@ -6,9 +6,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 
-public class AddProduct {
-    private String name;
-    private String category;
-    private Float price;
-    private Float discount;
+public class AddProductInCart {
+    @JsonProperty("product_id")
+    private Integer id;
+    private Integer quantity;
 }

@@ -1,29 +1,24 @@
 package org.example;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
-import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.matcher.RestAssuredMatchers;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.List;
-import java.util.regex.Matcher;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class RestAssuredTest {
 
     private static final String login = "GreenMiles711";
+    private static final String name_product = "Car";
+    private static final String category = "Electronics";
+    private static final Float price = 15.5F;
+    private static final Float discount = 5.3F;
     private static String new_login = "";
     private static final String password = "string2";
     private static final String register_endpoint = "/register";
@@ -81,20 +76,24 @@ public class RestAssuredTest {
 
     @Test
     public void getProductTest() {
-            RestAssured
-                    .given()
-                    .get(product_endpoint)
-                    .then()
-                    .assertThat()
-                    .statusCode(200)
-                    .body(matchesJsonSchemaInClasspath("productCardSchema.json"));
+        RestAssured
+                .given()
+                .get(product_endpoint)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("productCardSchema.json"));
 
-
-
-
-
-        //ObjectMapper mapper = new ObjectMapper();
-        //mapper.writeValue(new File(Path + "/productCardSchema.json"), response.body());
+    }
+    @Test
+    public void addNewProductTest() {
+        RestAssured
+                .given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .body(new AddProduct(name_product, category, price, discount))
+                .post(product_endpoint)
+                .then().statusCode(200);
     }
 
     @Test
@@ -104,7 +103,7 @@ public class RestAssuredTest {
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
                 .header(new Header("Authorization", "Bearer " + token))
-                .body(new AddProduct(1, 15))
+                .body(new AddProductInCart(1, 15))
                 .post(cart_endpoint)
                 .then().statusCode(201);
     }
