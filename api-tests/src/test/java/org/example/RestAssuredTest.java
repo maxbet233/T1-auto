@@ -232,6 +232,4 @@ public class RestAssuredTest {
                 .assertThat()
                 .statusCode(401);
     }
-
-
 }
