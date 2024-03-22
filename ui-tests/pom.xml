@@ -14,8 +14,10 @@
 
     <properties>
         <selenium.version>1.19.7</selenium.version>
+        <selenium-java.version>4.18.1</selenium-java.version>
         <selenide.version>7.2.1</selenide.version>
         <allure-selenide.version>2.25.0</allure-selenide.version>
+        <selenium-chrome-driver.version>4.18.1</selenium-chrome-driver.version>
     </properties>
 
     <dependencies>
@@ -30,6 +32,11 @@
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
@@ -38,6 +45,11 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>${allure-selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>${selenium-chrome-driver.version}</version>
         </dependency>
     </dependencies>
 </project>
