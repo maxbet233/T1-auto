@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.HoverOptions;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -71,15 +72,13 @@ public class SelTest {
         System.out.println(input.val());
     }
     @Test
-    void hovers() throws InterruptedException {
-        Random rand = new Random();
-        int x = rand.nextInt(10000);
-        SelenideElement link = $x("//a[@href='/inputs']");
+    void hovers(){
+        SelenideElement link = $x("//a[@href='/hovers']");
         link.should(visible).click();
-        SelenideElement input = $x("//input[@type = 'number']");
-        input.sendKeys("" + x);
-        System.out.println(input.val());
-        Thread.sleep(3000);
+        ElementsCollection img = $$x("//div[@class='figure']");
+        System.out.println(img.get(0).hover().getText());
+        System.out.println(img.get(1).hover().getText());
+        System.out.println(img.get(2).hover().getText());
     }
 
     @AfterEach
