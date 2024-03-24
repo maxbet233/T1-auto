@@ -21,8 +21,10 @@ public class SelTest {
         SelenideElement link = $x("//a[@href='/checkboxes']");
         link.should(visible).click();
         ElementsCollection checkBoxes = $$x("//input[@type='checkbox']");
+
         checkBoxes.get(0).click();
         System.out.println(checkBoxes.get(0).isSelected());
+
         checkBoxes.get(1).click();
         System.out.println(checkBoxes.get(1).isSelected());
     }
@@ -31,12 +33,16 @@ public class SelTest {
     void dropDown(){
         SelenideElement link = $x("//a[@href='/dropdown']");
         link.should(visible).click();
+
         SelenideElement select = $x("//select[@id='dropdown']");
         select.click();
+
         ElementsCollection options = $$x("//option[@value]");
         options.get(1).click();
         System.out.println(options.get(1).text());
+
         select.click();
+
         options.get(2).click();
         System.out.println(options.get(2).text());
     }
@@ -65,8 +71,10 @@ public class SelTest {
     void randomInput(){
         Random rand = new Random();
         int x = rand.nextInt(10000);
+
         SelenideElement link = $x("//a[@href='/inputs']");
         link.should(visible).click();
+
         SelenideElement input = $x("//input[@type = 'number']");
         input.sendKeys("" + x);
         System.out.println(input.val());
@@ -76,9 +84,21 @@ public class SelTest {
         SelenideElement link = $x("//a[@href='/hovers']");
         link.should(visible).click();
         ElementsCollection img = $$x("//div[@class='figure']");
+
         System.out.println(img.get(0).hover().getText());
         System.out.println(img.get(1).hover().getText());
         System.out.println(img.get(2).hover().getText());
+    }
+    @Test
+    void notificationMessage(){
+        SelenideElement link = $x("//a[@href='/notification_message']");
+        SelenideElement close = $x("//a[@class='close']");
+        link.should(visible).click();
+
+        while (!$x("//div[@class='flash notice']").getText().contains("Action successful")) {
+            link.should(visible).click();
+            close.click();
+        }
     }
 
     @AfterEach
