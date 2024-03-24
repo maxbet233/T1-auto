@@ -40,7 +40,7 @@ public class SelTest {
         System.out.println(options.get(2).text());
     }
     @Test
-    void disappearingElements() throws InterruptedException {
+    void disappearingElements(){
         SelenideElement link = $x("//a[@href='/disappearing_elements']");
         link.should(visible).click();
 
@@ -61,7 +61,17 @@ public class SelTest {
         }
     }
     @Test
-    void randomInput() throws InterruptedException {
+    void randomInput(){
+        Random rand = new Random();
+        int x = rand.nextInt(10000);
+        SelenideElement link = $x("//a[@href='/inputs']");
+        link.should(visible).click();
+        SelenideElement input = $x("//input[@type = 'number']");
+        input.sendKeys("" + x);
+        System.out.println(input.val());
+    }
+    @Test
+    void hovers() throws InterruptedException {
         Random rand = new Random();
         int x = rand.nextInt(10000);
         SelenideElement link = $x("//a[@href='/inputs']");
