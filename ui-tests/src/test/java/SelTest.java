@@ -1,25 +1,14 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.GeckoDriverInfo;
-
-import java.util.List;
-
+import java.util.Random;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SelTest {
-
-    WebDriver driver;
     @BeforeEach
     void setup(){
         Configuration.browser = "firefox";
@@ -49,11 +38,43 @@ public class SelTest {
         select.click();
         options.get(2).click();
         System.out.println(options.get(2).text());
+    }
+    @Test
+    void disappearingElements() throws InterruptedException {
+        SelenideElement link = $x("//a[@href='/disappearing_elements']");
+        link.should(visible).click();
 
+        for (int i = 1; i <= 10; i++){
+            ElementsCollection countLinks = $$x("//li");
+            if (countLinks.size() == 5){
+                System.out.println("Найдено " + countLinks.size() + " элементов. Количество попыток " + i);
+                break;
+            }
+            else if (i == 10){
+                System.out.println("Не найдено за " + i + "попыток");
+                assert countLinks.size() == 5;
+                break;
+            }
+            else if (countLinks.size() != 5){
+                refresh();
+            }
+        }
+    }
+    @Test
+    void randomInput() throws InterruptedException {
+        Random rand = new Random();
+        int x = rand.nextInt(10000);
+        SelenideElement link = $x("//a[@href='/inputs']");
+        link.should(visible).click();
+        SelenideElement input = $x("//input[@type = 'number']");
+        input.sendKeys("" + x);
+        System.out.println(input.val());
+        Thread.sleep(3000);
     }
 
     @AfterEach
     void tearDown(){
         closeWindow();
     }
+
 }
