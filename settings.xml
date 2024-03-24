@@ -1,0 +1,152 @@
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"
+          xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <servers>
+        <!-- COMMON -->
+        <server>
+            <id>crcm-maven-central</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+        <server>
+            <id>crcm-maven-apach</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+
+        <!-- CRCM -->
+        <server>
+            <id>crcm-maven-lib</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+        <server>
+            <id>crcm-maven-snapshot</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+        <!-- PFOM -->
+        <server>
+            <id>pfom-maven-lib</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+        <server>
+            <id>pfomb-maven-central</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+        <server>
+            <id>pfomb-maven-apach</id>
+            <username>ci_dos_CRCM</username>
+            <password>Blablabla123456!</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>crcm-maven-central</id>
+            <name>central</name>
+            <mirrorOf>central</mirrorOf>
+            <url>https://nexus-ci.corp.dev.vtb/repository/crcm-maven</url>
+        </mirror>
+        <mirror>
+            <id>crcm-maven-apach</id>
+            <name>apache.snapshots</name>
+            <mirrorOf>apache.snapshots</mirrorOf>
+            <url>https://nexus-ci.corp.dev.vtb/repository/crcm-maven</url>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>crcm</id>
+
+            <repositories>
+                <!-- CRCM -->
+                <repository>
+                    <id>pfomb-maven-apach</id>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/pfomb-maven</url>
+                </repository>
+
+                <repository>
+                    <id>crcm-maven-lib</id>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/crcm-maven-lib/</url>
+                </repository>
+
+                <repository>
+                    <id>crcm-maven-snapshot</id>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/crcm-maven-snapshot/</url>
+                </repository>
+                <!-- PFOM -->
+                <repository>
+                    <id>pfom-maven-lib</id>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/pfomb-maven-proxy-group/</url>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <!-- CRCM -->
+                <pluginRepository>
+                    <id>crcm-maven-lib</id>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/crcm-maven-lib/</url>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>crcm-maven-snapshot</id>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/crcm-maven-snapshot/</url>
+                </pluginRepository>
+
+                <!-- PFOM -->
+                <pluginRepository>
+                    <id>pfom-maven-lib</id>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://nexus-ci.corp.dev.vtb/repository/pfomb-maven-proxy-group/</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>crcm</activeProfile>
+    </activeProfiles>
+</settings>

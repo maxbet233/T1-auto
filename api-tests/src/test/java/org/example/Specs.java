@@ -7,6 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public class Specs {
+    public static String uri = "http://9b142cdd34e.vps.myjino.ru:49268";
     public static String login = "tester123";
     public static String password = "pass123";
     public static String name_product = "Car";

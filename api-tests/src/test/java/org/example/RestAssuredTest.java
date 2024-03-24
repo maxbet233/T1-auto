@@ -19,7 +19,7 @@ public class RestAssuredTest {
     }
 
     private void register(String login, String password) {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "register"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "register"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -28,7 +28,7 @@ public class RestAssuredTest {
     }
 
     private static String autorizate(String login, String password){
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "login"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "login"));
         return RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -43,7 +43,7 @@ public class RestAssuredTest {
 
     @Test
     public void logInTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "login"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "login"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -56,7 +56,7 @@ public class RestAssuredTest {
 
     @Test
     public void getProductTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .get()
@@ -68,7 +68,7 @@ public class RestAssuredTest {
     }
     @Test
     public void addNewProductTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -80,7 +80,7 @@ public class RestAssuredTest {
     }
     @Test
     public void getProductIdTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .get("1")
@@ -91,7 +91,7 @@ public class RestAssuredTest {
     }
     @Test
     public void getFakeProductIdTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .get("1rgtdf")
@@ -102,7 +102,7 @@ public class RestAssuredTest {
 
     @Test
     public void putProductTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -114,7 +114,7 @@ public class RestAssuredTest {
     }
     @Test
     public void putFakeProductTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -127,7 +127,7 @@ public class RestAssuredTest {
 
     @Test
     public void delProductTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -136,7 +136,7 @@ public class RestAssuredTest {
     }
     @Test
     public void delFakeProductTest() {
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "products"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "products"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -149,7 +149,7 @@ public class RestAssuredTest {
     @Test
     public void getCartTest(){
         String token = autorizate(Specs.login, Specs.password);
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .header(new Header("Authorization", "Bearer " + token))
@@ -160,7 +160,7 @@ public class RestAssuredTest {
     }
     @Test
     public void getCartNoAuthTest(){
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .get()
@@ -172,7 +172,7 @@ public class RestAssuredTest {
     @Test
     public void newCartTest(){
         String token = autorizate(Specs.login, Specs.password);
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -185,7 +185,7 @@ public class RestAssuredTest {
     }
     @Test
     public void newCartNoAuthTest(){
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -198,7 +198,7 @@ public class RestAssuredTest {
     @Test
     public void delProductOfCartTest(){
         String token = autorizate(Specs.login, Specs.password);
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -211,7 +211,7 @@ public class RestAssuredTest {
     @Test
     public void delFakeProductOfCartTest(){
         String token = autorizate(Specs.login, Specs.password);
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)
@@ -223,7 +223,7 @@ public class RestAssuredTest {
     }
     @Test
     public void delProductOfCartNoAuthTest(){
-        Specs.installSpec(Specs.requestSpec("http://9b142cdd34e.vps.myjino.ru:49268", "cart"));
+        Specs.installSpec(Specs.requestSpec(Specs.uri, "cart"));
         RestAssured
                 .given()
                 .accept(ContentType.JSON)

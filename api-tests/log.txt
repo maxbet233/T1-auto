@@ -1,31 +1,10 @@
 HTTP/1.1 200 OK
 Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Thu, 21 Mar 2024 19:35:28 GMT
+Date: Sun, 24 Mar 2024 16:59:20 GMT
 Content-Type: application/json
 Content-Length: 361
 Connection: close
 
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMTA0OTcyOCwianRpIjoiY2RhZDc4N2YtZWQwZS00ZTEyLTkyMjgtMTkxZGIwMTU0MjA0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3RlcjEyMyIsIm5iZiI6MTcxMTA0OTcyOCwiY3NyZiI6IjcxNWI0NzgyLTRhZjktNGY4ZS1iNjI0LTViY2EyYzYwZDE5OSIsImV4cCI6MTcxMTA1MDYyOH0.IuL2N0V3Pwwtlz-LOqvQNFK8fk5gO5JvXYMbnS6JHBw"
-}
-HTTP/1.1 200 OK
-Server: Werkzeug/3.0.1 Python/3.10.13
-Date: Thu, 21 Mar 2024 19:35:28 GMT
-Content-Type: application/json
-Content-Length: 235
-Connection: close
-
-{
-    "cart": [
-        {
-            "category": "Electronics",
-            "discount": 10.0,
-            "id": 1,
-            "name": "HP Pavilion Laptop",
-            "price": 10.99,
-            "quantity": 88
-        }
-    ],
-    "total_discount": 96.71,
-    "total_price": 967.12
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxMTI5OTU2MCwianRpIjoiMGY1YTViMDQtODcyNy00YTFjLWI0MTktNjk2OGEyMWQ0ZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6InRlc3RlcjEyMyIsIm5iZiI6MTcxMTI5OTU2MCwiY3NyZiI6ImNhYTkzNzZlLTQ4YjYtNDA3My05ZjBkLTdlYTBlYmRkNGIwYiIsImV4cCI6MTcxMTMwMDQ2MH0.fFGi1sidGzAgZGme5Zb9S2JE5CXE2vNTs4M6Lk9Wlnk"
 }
