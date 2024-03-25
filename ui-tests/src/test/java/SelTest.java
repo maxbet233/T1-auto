@@ -46,6 +46,7 @@ public class SelTest {
         options.get(2).click();
         System.out.println(options.get(2).text());
     }
+
     @Test
     void disappearingElements(){
         SelenideElement link = $x("//a[@href='/disappearing_elements']");
@@ -67,6 +68,7 @@ public class SelTest {
             }
         }
     }
+
     @Test
     void randomInput(){
         Random rand = new Random();
@@ -79,6 +81,7 @@ public class SelTest {
         input.sendKeys("" + x);
         System.out.println(input.val());
     }
+
     @Test
     void hovers(){
         SelenideElement link = $x("//a[@href='/hovers']");
@@ -89,6 +92,7 @@ public class SelTest {
         System.out.println(img.get(1).hover().getText());
         System.out.println(img.get(2).hover().getText());
     }
+
     @Test
     void notificationMessage(){
         SelenideElement link = $x("//a[@href='/notification_message']");
