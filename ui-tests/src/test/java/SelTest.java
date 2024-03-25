@@ -1,6 +1,5 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.HoverOptions;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -98,11 +97,72 @@ public class SelTest {
         SelenideElement link = $x("//a[@href='/notification_message']");
         SelenideElement close = $x("//a[@class='close']");
         link.should(visible).click();
+        close.click();
 
         while (!$x("//div[@class='flash notice']").getText().contains("Action successful")) {
             link.should(visible).click();
             close.click();
         }
+    }
+
+    @Test
+    void addRemoveElements(){
+        SelenideElement link = $x("//a[@href='/add_remove_elements/']");
+        SelenideElement addButton = $x("//button[@onclick='addElement()']");
+        ElementsCollection deleteElements = $$x("//button[@onclick='deleteElement()']");
+        link.should(visible).click();
+        Random rand = new Random();
+
+        for (int i = 0; i < 5; i++){
+            addButton.click();
+            System.out.println(deleteElements.last().text());
+        }
+
+        for (int j = 0; j < 3; j++){
+            int x = rand.nextInt(4-j);
+            deleteElements.get(x).click();
+            System.out.println(deleteElements.get(x).text());
+        }
+    }
+
+    @Test
+    void statusCode200(){
+        SelenideElement link = $x("//a[@href='/status_codes']");
+        link.should(visible).click();
+
+        $x("//a[@href='status_codes/200']").click();
+        SelenideElement page = $x("//body");
+        System.out.println(page.text());
+    }
+
+    @Test
+    void statusCode301(){
+        SelenideElement link = $x("//a[@href='/status_codes']");
+        link.should(visible).click();
+
+        $x("//a[@href='status_codes/301']").click();
+        SelenideElement page = $x("//body");
+        System.out.println(page.text());
+    }
+
+    @Test
+    void statusCode404(){
+        SelenideElement link = $x("//a[@href='/status_codes']");
+        link.should(visible).click();
+
+        $x("//a[@href='status_codes/404']").click();
+        SelenideElement page = $x("//body");
+        System.out.println(page.text());
+    }
+
+    @Test
+    void statusCode500(){
+        SelenideElement link = $x("//a[@href='/status_codes']");
+        link.should(visible).click();
+
+        $x("//a[@href='status_codes/500']").click();
+        SelenideElement page = $x("//body");
+        System.out.println(page.text());
     }
 
     @AfterEach
