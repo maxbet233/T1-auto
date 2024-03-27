@@ -2,11 +2,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.WebElement;
 
 import java.util.Random;
@@ -22,17 +25,16 @@ public class SelTest {
         open("https://the-internet.herokuapp.com/");
     }
 
-    @Test
-    void checkBoxes(){
+    @ParameterizedTest
+    @ValueSource(ints = {1, 0})
+    @DisplayName("Number check box:")
+    void checkBoxes(int posNumber){
         SelenideElement link = $x("//a[@href='/checkboxes']");
         link.should(visible).click();
         ElementsCollection checkBoxes = $$x("//input[@type='checkbox']");
 
-        checkBoxes.get(0).click();
-        checkBoxes.get(1).click();
-
-        checkBoxes.get(0).should(Condition.attribute("checked", "true"));
-        checkBoxes.get(1).should(Condition.attribute("checked", ""));
+        checkBoxes.get(posNumber).click();
+        checkBoxes.get(posNumber).should(Condition.attribute("checked", "true"));
     }
 
     @Test
@@ -171,6 +173,8 @@ public class SelTest {
         SelenideElement page = $x("//body");
         System.out.println(page.text());
     }
+
+
 
     @AfterEach
     void tearDown(){
