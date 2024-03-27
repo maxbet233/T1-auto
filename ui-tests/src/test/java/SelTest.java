@@ -1,10 +1,17 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.openqa.selenium.WebElement;
+
 import java.util.Random;
+
+import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -22,10 +29,10 @@ public class SelTest {
         ElementsCollection checkBoxes = $$x("//input[@type='checkbox']");
 
         checkBoxes.get(0).click();
-        System.out.println(checkBoxes.get(0).isSelected());
-
         checkBoxes.get(1).click();
-        System.out.println(checkBoxes.get(1).isSelected());
+
+        checkBoxes.get(0).should(Condition.attribute("checked", "true"));
+        checkBoxes.get(1).should(Condition.attribute("checked", ""));
     }
 
     @Test
