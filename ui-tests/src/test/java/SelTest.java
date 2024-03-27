@@ -37,8 +37,10 @@ public class SelTest {
         checkBoxes.get(posNumber).should(Condition.attribute("checked", "true"));
     }
 
-    @Test
-    void dropDown(){
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2})
+    @DisplayName("Number option:")
+    void dropDown(int optionNumber){
         SelenideElement link = $x("//a[@href='/dropdown']");
         link.should(visible).click();
 
@@ -46,13 +48,8 @@ public class SelTest {
         select.click();
 
         ElementsCollection options = $$x("//option[@value]");
-        options.get(1).click();
-        System.out.println(options.get(1).text());
-
-        select.click();
-
-        options.get(2).click();
-        System.out.println(options.get(2).text());
+        options.get(optionNumber).click();
+        options.get(optionNumber).should(visible);
     }
 
     @Test
