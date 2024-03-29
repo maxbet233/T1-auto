@@ -1,13 +1,6 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
 import io.qameta.allure.Step;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.WebElement;
@@ -52,26 +45,13 @@ public class SelTest {
         options.get(optionNumber).should(visible);
     }
 
-    @Test
+    @RepeatedTest(value = 10, name = "Поиск 5 элементов")
     void disappearingElements(){
         SelenideElement link = $x("//a[@href='/disappearing_elements']");
         link.should(visible).click();
 
-        for (int i = 1; i <= 10; i++){
-            ElementsCollection countLinks = $$x("//li");
-            if (countLinks.size() == 5){
-                System.out.println("Найдено " + countLinks.size() + " элементов. Количество попыток " + i);
-                break;
-            }
-            else if (i == 10){
-                System.out.println("Не найдено за " + i + "попыток");
-                assert countLinks.size() == 5;
-                break;
-            }
-            else if (countLinks.size() != 5){
-                refresh();
-            }
-        }
+        ElementsCollection countLinks = $$x("//li");
+        countLinks.should(CollectionCondition.size(5));
     }
 
     @Test
