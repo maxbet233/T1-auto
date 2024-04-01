@@ -1,13 +1,12 @@
 import com.codeborne.selenide.*;
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -54,18 +53,48 @@ public class SelTest {
         countLinks.should(CollectionCondition.size(5));
     }
 
-    @Test
-    void randomInput(){
-        Random rand = new Random();
-        int x = rand.nextInt(10000);
+    @TestFactory
+    @DisplayName("Проверка введенных значений")
+    List<DynamicTest> testSendKeys() {
+        List<DynamicTest> res = new ArrayList<>();
+        List<String> testData = randomInput();
 
         SelenideElement link = $x("//a[@href='/inputs']");
         link.should(visible).click();
 
-        SelenideElement input = $x("//input[@type = 'number']");
-        input.sendKeys("" + x);
-        System.out.println(input.val());
+        for (int i = 0; i < testData.size(); i++) {
+            final int index = i;
+
+            res.add(
+                    DynamicTest.dynamicTest(
+                            "Test " + i,
+                            () -> {
+                                SelenideElement input = $x("//input[@type = 'number']");
+                                input.sendKeys(testData.get(index));
+                                input.should(Condition.value(testData.get(index)));
+                                refresh();
+                            }
+                    )
+            );
+        }
+        return res;
     }
+
+    private List<String> randomInput() {
+        List<String> result = new ArrayList<>();
+        result.add("123");
+        result.add("456456");
+        result.add("3235432452");
+        result.add("%#");
+        result.add("3");
+        return result;
+    }
+
+
+    //      SelenideElement input = $x("//input[@type = 'number']");
+    //      input.sendKeys("" + x);
+    //      System.out.println(input.val());
+
 
     @Test
     void hovers(){
