@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SelTest {
@@ -85,26 +85,25 @@ public class SelTest {
         result.add("123");
         result.add("456456");
         result.add("3235432452");
-        result.add("%#");
-        result.add("3");
+        result.add("123323588967432452");
+        result.add("632332452");
+        result.add("0323533432452");
+        result.add("32354456432452");
+        result.add("32354564532452");
+        result.add("456456");
+        result.add("35456;$#");
         return result;
     }
 
 
-    //      SelenideElement input = $x("//input[@type = 'number']");
-    //      input.sendKeys("" + x);
-    //      System.out.println(input.val());
-
-
-    @Test
-    void hovers(){
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2})
+    @DisplayName("Number hover:")
+    void hovers(int numHover){
         SelenideElement link = $x("//a[@href='/hovers']");
         link.should(visible).click();
         ElementsCollection img = $$x("//div[@class='figure']");
-
-        System.out.println(img.get(0).hover().getText());
-        System.out.println(img.get(1).hover().getText());
-        System.out.println(img.get(2).hover().getText());
+        img.get(numHover).hover().should(have(text("name: user" + (numHover+1))));
     }
 
     @Test
